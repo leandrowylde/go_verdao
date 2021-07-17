@@ -8,13 +8,13 @@ import (
 )
 
 func ConnectDB() *gorm.DB {
-	dsn := ":memory:"
+	dsn := "./results.db"
 	db, err := gorm.Open("sqlite3", dsn)
 	if err != nil {
 		panic(err)
 	}
 
-	db.LogMode(true)
+	// db.LogMode(true)
 
 	db.AutoMigrate(&model.Result{})
 	return db
