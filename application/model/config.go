@@ -6,7 +6,7 @@ import (
 )
 
 type Config struct {
-	URLs  []URI
+	URLs  []URI  `json:"urls"`
 	Start string `json:"start"`
 	Stop  string `json:"stop"`
 }
