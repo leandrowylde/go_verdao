@@ -10,17 +10,17 @@ import (
 )
 
 type TestAPIUseCase struct {
-	API              model.URI
+	APIs             []model.URI
 	ResultRepository model.ResultRepositoryInterface
 }
 
-func (a *TestAPIUseCase) Auth(token string) error {
-	req, err := http.NewRequest(string(a.API.Method), a.API.URL, bytes.NewBufferString(a.API.Body))
+func (a *TestAPIUseCase) Auth(uri model.URI) error {
+	req, err := http.NewRequest(string(uri.Method), uri.URL, bytes.NewBufferString(uri.Body))
 	if err != nil {
 		panic(err)
 	}
-	req.Header.Add("accept", string(a.API.ResponseType))
-	req.Header.Add("Authorization", a.API.AuthToken)
+	req.Header.Add("accept", string(uri.ResponseType))
+	req.Header.Add("Authorization", uri.AuthToken)
 
 	c := &http.Client{}
 	resp, err := c.Do(req)
@@ -29,17 +29,17 @@ func (a *TestAPIUseCase) Auth(token string) error {
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
-	fmt.Printf("Response from %v: %v", a.API.URL, body)
+	fmt.Printf("Response from %v: %v", uri.URL, body)
 	return err
 }
 
 func (a *TestAPIUseCase) MakeRequest(uri model.URI) (responseCode model.ResponseCode, responseData string, err error) {
-	req, err := http.NewRequest(string(a.API.Method), a.API.URL, bytes.NewBufferString(a.API.Body))
+	req, err := http.NewRequest(string(uri.Method), uri.URL, bytes.NewBufferString(uri.Body))
 	if err != nil {
 		return
 	}
-	req.Header.Add("accept", string(a.API.ResponseType))
-	req.Header.Add("Authorization", a.API.AuthToken)
+	req.Header.Add("accept", string(uri.ResponseType))
+	req.Header.Add("Authorization", uri.AuthToken)
 
 	c := &http.Client{}
 	resp, err := c.Do(req)
