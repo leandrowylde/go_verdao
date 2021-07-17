@@ -1,4 +1,4 @@
-package respository
+package repository
 
 import (
 	"github.com/cogny/go_verdao/application/model"
@@ -9,7 +9,7 @@ type ResultRespositoryDB struct {
 	DB *gorm.DB
 }
 
-func (r *ResultRespositoryDB) SaveResult(result model.Result) error {
+func (r ResultRespositoryDB) SaveResult(result *model.Result) error {
 	err := r.DB.Create(result).Error
 	return err
 }
