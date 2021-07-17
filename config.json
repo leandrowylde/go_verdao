@@ -1,0 +1,49 @@
+{
+  "urls": [
+    {
+      "url": "http://apifutebol.footstats.com.br/3.1/partidas/186678",
+      "auth_token": "Bearer 25f9180b-614",
+      "method": "GET",
+      "response_type": "application/json"
+    },
+    {
+      "url": "http://apifutebol.footstats.com.br/3.1/partidas/186678/equipes/scout",
+      "auth_token": "Bearer 25f9180b-614",
+      "method": "GET",
+      "response_type": "application/json"
+    },
+    {
+      "url": "http://apifutebol.footstats.com.br/3.1/partidas/186678/cartoes",
+      "auth_token": "Bearer 25f9180b-614",
+      "method": "GET",
+      "response_type": "application/json"
+    },
+    {
+      "url": "http://apifutebol.footstats.com.br/3.1/partidas/186678/gols",
+      "auth_token": "Bearer 25f9180b-614",
+      "method": "GET",
+      "response_type": "application/json"
+    },
+    {
+      "url": "http://apifutebol.footstats.com.br/3.1/partidas/186678/substituicoes",
+      "auth_token": "Bearer 25f9180b-614",
+      "method": "GET",
+      "response_type": "application/json"
+    },
+    {
+      "url": "http://apifutebol.footstats.com.br/3.1/partidas/186678/escalacao",
+      "auth_token": "Bearer 25f9180b-614",
+      "method": "GET",
+      "response_type": "application/json"
+    },
+    {
+      "url": "http://apifutebol.footstats.com.br/3.1/partidas/186678/narracoes",
+      "auth_token": "Bearer 25f9180b-614",
+      "method": "GET",
+      "response_type": "application/json"
+    }
+  ],
+  "start": "2021-07-17T17:30:00-03:00",
+  "stop": "2021-07-17T17:31:00-03:00",
+  "delay": 5
+}
